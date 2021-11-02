@@ -1,0 +1,3 @@
+ host - ftp.quantumindiagroup.com
+ftp user - issp@isspcon2021.com
+password - hZ^isdLWs

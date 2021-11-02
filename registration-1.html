@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]>
+<!--><html class=""><!--<![endif]-->
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<head>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="HCB CIMGlobal">
+	<title>ISSPCON 2021 - National Conference of India Society for Study of Pain</title>
+
+	<!-- Standard Favicon -->
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+	
+	<!-- Library - Bootstrap v3.3.5 -->
+    <link rel="stylesheet" type="text/css" href="libraries/lib.css">
+    <link rel="stylesheet" type="text/css" href="libraries/Stroke-Gap-Icon/stroke-gap-icon.css">
+	
+	<!-- Custom - Common CSS -->
+	<link rel="stylesheet" type="text/css" href="css/plugins.css">
+	<link rel="stylesheet" type="text/css" href="css/navigation-menu.css">
+	<link rel="stylesheet" type="text/css" href="libraries/lightslider-master/lightslider.css">
+	
+	<!-- Custom - Theme CSS -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="css/shortcode.css">
+	<link rel="stylesheet" type="text/css" href="css/registration.css">
+    
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/css/bootstrap-datetimepicker.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+	<!--[if lt IE 9]>		
+		<script src="js/html5/respond.min.js"></script>
+    <![endif]-->
+		<script src="js/validation/registrationValidation.js"></script>
+	<script type="text/javascript">
+		var totalfees = 0;
+		var conffees = 0;
+		var acmpfees = 0;
+		var wrkfees = 0;
+		var conferencetype = "";
+		var workshoptype = "";
+		var totalfeesnarration = "";
+		
+		var basicwrkshp = 0;
+		
+		function regfees()
+		{
+			conffees = conferencefees();
+			acmpfees = accompanyfees();
+			wrkfees = workshopfees();
+			//basicwrkshp = radioCheckButton();
+			totalfees = parseInt(conffees) + parseInt(acmpfees) + parseInt(wrkfees);
+			
+			document.getElementById('finalfees').innerHTML = totalfees;
+			document.getElementById('totalfees').value = totalfees;
+			document.getElementById('totalfeesnarration').value = totalfeesnarration;
+		}
+		
+		function conferencefees()
+		{
+			totalfeesnarration = "";
+			conffees = 0;
+			if(document.getElementById('conf1').checked == true)
+			{
+				conferencetype = "Member";
+				conffees = document.getElementById('conf1').value;
+			}
+			else if(document.getElementById('conf2').checked == true)
+			{
+				conferencetype = "Non-Member";
+				conffees = document.getElementById('conf2').value;
+			}
+			else if(document.getElementById('conf3').checked == true)
+			{
+				conferencetype = "PG-Student";
+				conffees = document.getElementById('conf3').value;
+			}
+			else if(document.getElementById('conf4').checked == true)
+			{
+				conferencetype = "Faculty";
+				conffees = document.getElementById('conf4').value;
+			}
+			
+			document.getElementById('conftype').value = conferencetype;
+			totalfeesnarration = totalfeesnarration + "Conference Registration";
+			
+			return conffees;
+		}
+		
+		function accompanyfees()
+		{
+			acmpfees = 0;
+			if(document.getElementById('accomp').checked == true)
+			{
+				totalfeesnarration = totalfeesnarration + " + Accompany";
+				acmpfees = document.getElementById('accomp').value;
+			}
+			
+			return acmpfees;
+		}
+		
+		function workshopfees()
+		{
+			wrkfees = 0;
+			if(document.getElementById('wrkshp1').checked == true)
+			{
+				workshoptype = "9";
+				document.getElementById('wrkshptype').value = workshoptype;
+				totalfeesnarration = totalfeesnarration + " + Workshop";
+				wrkfees = document.getElementById('wrkshp1').value;
+				document.getElementById('chkwrkshp1').style.display = "block";
+				document.getElementById('chkwrkshp2').style.display = "none";
+				document.getElementById('chkwrkshp3').style.display = "none";
+				document.getElementById('chkwrkshp4').style.display = "none";
+				document.getElementById('chkwrkshp5').style.display = "none";
+				document.getElementById('advflrwrkshp1').checked = false;
+				document.getElementById('advflrwrkshp2').checked = false;
+				document.getElementById('advflrwrkshp3').checked = false;
+				document.getElementById('cancerwrkshp1').checked = false;
+				document.getElementById('cancerwrkshp2').checked = false;
+				document.getElementById('cancerwrkshp3').checked = false;
+				document.getElementById('ultrswrksp1').checked = false;
+				document.getElementById('ultrswrksp2').checked = false;
+				document.getElementById('ultrswrksp3').checked = false;
+				document.getElementById('chkwrk1').checked = false;
+				document.getElementById('chkwrk2').checked = false;
+				document.getElementById('chkwrk3').checked = false;
+				document.getElementById('chkwrk4').checked = false;
+				
+				chkcounter = 0;
+				
+			}
+			else if(document.getElementById('wrkshp2').checked == true)
+			{
+				workshoptype = "10";
+				document.getElementById('wrkshptype').value = workshoptype;
+				totalfeesnarration = totalfeesnarration + " + Workshop";
+				wrkfees = document.getElementById('wrkshp2').value;
+				document.getElementById('chkwrkshp1').style.display = "none";
+				document.getElementById('chkwrkshp2').style.display = "block";
+				document.getElementById('chkwrkshp3').style.display = "none";
+				document.getElementById('chkwrkshp4').style.display = "none";
+				document.getElementById('chkwrkshp5').style.display = "none";
+				document.getElementById('basicwrkshp1').checked = false;
+				document.getElementById('basicwrkshp2').checked = false;
+				document.getElementById('basicwrkshp3').checked = false;
+				document.getElementById('cancerwrkshp1').checked = false;
+				document.getElementById('cancerwrkshp2').checked = false;
+				document.getElementById('cancerwrkshp3').checked = false;
+				document.getElementById('ultrswrksp1').checked = false;
+				document.getElementById('ultrswrksp2').checked = false;
+				document.getElementById('ultrswrksp3').checked = false;
+				document.getElementById('chkwrk1').checked = false;
+				document.getElementById('chkwrk2').checked = false;
+				document.getElementById('chkwrk3').checked = false;
+				document.getElementById('chkwrk4').checked = false;
+				
+				chkcounter = 0;
+			}
+			else if(document.getElementById('wrkshp3').checked == true)
+			{
+				workshoptype = "11";
+				document.getElementById('wrkshptype').value = workshoptype;
+				totalfeesnarration = totalfeesnarration + " + Workshop";
+				wrkfees = document.getElementById('wrkshp3').value;
+				document.getElementById('chkwrkshp1').style.display = "none";
+				document.getElementById('chkwrkshp2').style.display = "none";
+				document.getElementById('chkwrkshp3').style.display = "block";
+				document.getElementById('chkwrkshp4').style.display = "none";
+				document.getElementById('chkwrkshp5').style.display = "none";
+				document.getElementById('basicwrkshp1').checked = false;
+				document.getElementById('basicwrkshp2').checked = false;
+				document.getElementById('basicwrkshp3').checked = false;
+				document.getElementById('advflrwrkshp1').checked = false;
+				document.getElementById('advflrwrkshp2').checked = false;
+				document.getElementById('advflrwrkshp3').checked = false;
+				document.getElementById('ultrswrksp1').checked = false;
+				document.getElementById('ultrswrksp2').checked = false;
+				document.getElementById('ultrswrksp3').checked = false;
+				document.getElementById('chkwrk1').checked = false;
+				document.getElementById('chkwrk2').checked = false;
+				document.getElementById('chkwrk3').checked = false;
+				document.getElementById('chkwrk4').checked = false;
+				
+				chkcounter = 0;
+			}
+			else if(document.getElementById('wrkshp4').checked == true)
+			{
+				workshoptype = "12";
+				document.getElementById('wrkshptype').value = workshoptype;
+				totalfeesnarration = totalfeesnarration + " + Workshop";
+				wrkfees = document.getElementById('wrkshp4').value;
+				document.getElementById('chkwrkshp1').style.display = "none";
+				document.getElementById('chkwrkshp2').style.display = "none";
+				document.getElementById('chkwrkshp3').style.display = "none";
+				document.getElementById('chkwrkshp4').style.display = "block";
+				document.getElementById('chkwrkshp5').style.display = "none";
+				document.getElementById('basicwrkshp1').checked = false;
+				document.getElementById('basicwrkshp2').checked = false;
+				document.getElementById('basicwrkshp3').checked = false;
+				document.getElementById('advflrwrkshp1').checked = false;
+				document.getElementById('advflrwrkshp2').checked = false;
+				document.getElementById('advflrwrkshp3').checked = false;
+				document.getElementById('cancerwrkshp1').checked = false;
+				document.getElementById('cancerwrkshp2').checked = false;
+				document.getElementById('cancerwrkshp3').checked = false;
+				document.getElementById('chkwrk1').checked = false;
+				document.getElementById('chkwrk2').checked = false;
+				document.getElementById('chkwrk3').checked = false;
+				document.getElementById('chkwrk4').checked = false;
+				
+				chkcounter = 0;
+			}
+			else if(document.getElementById('wrkshp5').checked == true)
+			{
+				workshoptype = "13";
+				document.getElementById('wrkshptype').value = workshoptype;
+				totalfeesnarration = totalfeesnarration + " + Workshop";
+				wrkfees = document.getElementById('wrkshp5').value;
+				document.getElementById('chkwrkshp1').style.display = "none";
+				document.getElementById('chkwrkshp2').style.display = "none";
+				document.getElementById('chkwrkshp3').style.display = "none";
+				document.getElementById('chkwrkshp4').style.display = "none";
+				document.getElementById('chkwrkshp5').style.display = "block";
+				document.getElementById('basicwrkshp1').checked = false;
+				document.getElementById('basicwrkshp2').checked = false;
+				document.getElementById('basicwrkshp3').checked = false;
+				document.getElementById('advflrwrkshp1').checked = false;
+				document.getElementById('advflrwrkshp2').checked = false;
+				document.getElementById('advflrwrkshp3').checked = false;
+				document.getElementById('cancerwrkshp1').checked = false;
+				document.getElementById('cancerwrkshp2').checked = false;
+				document.getElementById('cancerwrkshp3').checked = false;
+				document.getElementById('ultrswrksp1').checked = false;
+				document.getElementById('ultrswrksp2').checked = false;
+				document.getElementById('ultrswrksp3').checked = false;
+				
+				chkcounter = 0;
+			}
+			
+			return wrkfees;
+		}
+		
+		var chkcounter = 0;
+		function radioCheckButton()
+		{
+			var chkwrk1 = 0;
+			var chkwrk2 = 0;
+			var chkwrk3 = 0;
+			var sumcheck = 0;
+			
+			
+			if(document.getElementById('basicwrkshp1').checked == true)
+			{
+				if(chkcounter < 2)
+				{
+					chkcounter++;
+					basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('basicwrkshp1').value);
+				}
+				else
+				{
+					document.getElementById('basicwrkshp1').checked = false;
+				}
+			}
+			if(document.getElementById('basicwrkshp2').checked == true)
+			{
+				if(chkcounter < 2)
+				{
+					chkcounter++;
+					basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('basicwrkshp2').value);
+				}
+				else
+				{
+					document.getElementById('basicwrkshp2').checked = false;
+				}
+			}
+			if(document.getElementById('basicwrkshp3').checked == true)
+			{
+				if(chkcounter < 2)
+				{
+					chkcounter++;
+					basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('basicwrkshp3').value);
+				}
+				else
+				{
+					document.getElementById('basicwrkshp3').checked = false;
+				}
+			}
+			if(document.getElementById('advflrwrkshp1').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('advflrwrkshp1').value);
+			}
+			if(document.getElementById('advflrwrkshp2').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('advflrwrkshp2').value);
+			}
+			if(document.getElementById('advflrwrkshp3').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('advflrwrkshp3').value);
+			}
+			if(document.getElementById('cancerwrkshp1').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('cancerwrkshp1').value);
+			}
+			if(document.getElementById('cancerwrkshp2').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('cancerwrkshp2').value);
+			}
+			if(document.getElementById('cancerwrkshp3').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('cancerwrkshp3').value);
+			}
+			if(document.getElementById('ultrswrksp1').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('ultrswrksp1').value);
+			}
+			if(document.getElementById('ultrswrksp2').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('ultrswrksp2').value);
+			}
+			if(document.getElementById('ultrswrksp3').checked == true)
+			{
+				basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById('ultrswrksp3').value);
+			}
+			if(document.getElementById('chkwrk1').checked == true)
+			{
+				chkwrk1 = document.getElementById('chkwrk1').value;
+				basicwrkshp = chkwrk1;
+			}
+			if(document.getElementById('chkwrk2').checked == true)
+			{
+				chkwrk2 = document.getElementById('chkwrk2').value;
+				basicwrkshp = chkwrk2;
+			}
+			if(document.getElementById('chkwrk3').checked == true)
+			{
+				chkwrk3 = document.getElementById('chkwrk3').value;
+				basicwrkshp = chkwrk3;
+			}
+			if(document.getElementById('chkwrk4').checked == true)
+			{
+				chkwrk3 = document.getElementById('chkwrk4').value;
+				basicwrkshp = chkwrk4;
+			}
+			return basicwrkshp;
+		}
+		
+		function checkboxtick(id)
+		{
+			if(document.getElementById(id).checked == true)
+			{
+				if(chkcounter < 2)
+				{
+					chkcounter++;
+					basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById(id).value);
+					
+					totalfees = parseInt(totalfees) + parseInt(document.getElementById(id).value);
+			
+					document.getElementById('finalfees').innerHTML = totalfees;
+					document.getElementById('totalfees').value = totalfees;
+				}
+				else
+				{
+					document.getElementById(id).checked = false;
+				}
+			}
+			else if(document.getElementById(id).checked == false)
+			{
+				chkcounter--;
+				basicwrkshp = parseInt(basicwrkshp) - parseInt(document.getElementById(id).value);
+				
+				totalfees = parseInt(totalfees) - parseInt(document.getElementById(id).value);
+			
+				document.getElementById('finalfees').innerHTML = totalfees;
+				document.getElementById('totalfees').value = totalfees;
+			}
+			//return basicwrkshp;
+			
+			
+			//regfees();
+		}
+		
+		function checkboxtick1(id)
+		{
+			if(document.getElementById(id).checked == true)
+			{
+				if(chkcounter < 1)
+				{
+					chkcounter++;
+					basicwrkshp = parseInt(basicwrkshp) + parseInt(document.getElementById(id).value);
+					
+					totalfees = parseInt(totalfees) + parseInt(document.getElementById(id).value);
+			
+					document.getElementById('finalfees').innerHTML = totalfees;
+					document.getElementById('totalfees').value = totalfees;
+				}
+				else
+				{
+					document.getElementById(id).checked = false;
+				}
+			}
+			else if(document.getElementById(id).checked == false)
+			{
+				chkcounter--;
+				basicwrkshp = parseInt(basicwrkshp) - parseInt(document.getElementById(id).value);
+				
+				totalfees = parseInt(totalfees) - parseInt(document.getElementById(id).value);
+			
+				document.getElementById('finalfees').innerHTML = totalfees;
+				document.getElementById('totalfees').value = totalfees;
+			}
+			//return basicwrkshp;
+			
+			
+			//regfees();
+		}
+		
+		function clearaccompany()
+		{
+			document.getElementById('accomp').checked = false;
+			regfees();
+		}
+		
+		function clearworkshop()
+		{
+			document.getElementById('wrkshp1').checked = false;
+			document.getElementById('wrkshp2').checked = false;
+			document.getElementById('wrkshp3').checked = false;
+			document.getElementById('wrkshp4').checked = false;
+			document.getElementById('wrkshp5').checked = false;
+			regfees();
+		}
+		
+		function showtax(val)
+		{
+			document.getElementById('paymentmodeValidation').innerHTML = "";
+			if(val == 1)
+			{
+				document.getElementById('taxbox').style.display = "block";
+				document.getElementById('offlinebox').style.display = "none";
+				document.getElementById('datasubmit').value = "Submit and Pay Online";
+			}
+			else if(val == 0)
+			{
+				document.getElementById('taxbox').style.display = "none";
+				document.getElementById('offlinebox').style.display = "block";
+				document.getElementById('datasubmit').value = "Submit and Pay Offline";
+			}
+		}
+		function textboxtext(id,val)
+		{
+			if(document.getElementById(id).value == 1)
+			{
+				document.getElementsByName('paymentbytext')[0].placeholder = 'Chq No./Date/Bk. Name';
+			}
+			else if(document.getElementById(id).value == 2)
+			{
+				document.getElementsByName('paymentbytext')[0].placeholder = 'NEFT Ref. No.';
+			}
+			else if(document.getElementById(id).value == 3)
+			{
+				document.getElementsByName('paymentbytext')[0].placeholder = 'UPI Ref. No.';
+			}
+			
+		}
+		function showtermsvalid(id)
+		{
+			if(document.getElementById(id).checked == true)
+			{
+				document.getElementById('agreeValidation').innerHTML = "";
+			}
+		}
+		
+		function ShowProgressAnimation()
+		{
+			$("#loading-div-background").show();
+		}
+	</script>
+	
+
+<style>
+.validation{
+	color:#F00;
+
+	font-size:0.775em;	
+	font-weight:bold;
+}
+</style>	
+<style>
+#loading-div-background{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+#loading-div{
+    width: 400px;
+    background-color: #fff;
+    /*border: 2px solid #f57c13;*/
+    text-align: center;
+    color: #202020;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+	margin-left: -150px;
+    margin-top: -200px;
+   	padding-bottom: 30px;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    behavior: url("css/pie/PIE.html"); /* HANDLES IE */
+}
+.contactus-form .col-md-12 {
+  clear:both;
+}
+.contactus-inline span {
+  display:block;
+}
+
+.contactus-inline span:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+</style>
+	
+	</head>
+
+<body data-offset="200" data-spy="scroll" data-target=".ow-navigation">
+	
+	<!-- Header -->
+
+<header class="header-main container-fluid no-padding">
+		
+		<!-- Top Header -->
+<div class="top-header container-fluid no-padding">
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+            <!-- Social -->
+            <!-- Social /- -->
+            <!-- Register -->
+            <!-- Register /- -->
+            <!-- Logo Block -->
+              <div class="col-md-6 col-sm-6 col-xs-6 logo-block">
+                <a href="index.html" title="#">
+                    <img src="images/logo.png" class="img-responsive" alt="Indian Society for Study of Pain" title="Indian Society for Study of Pain">
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-6 register">
+<a href="index.html" title="#">
+                    <img src="images/issplogo.png" class="img-responsive" alt="Indian Society for Study of Pain" title="Indian Society for Study of Pain">
+                </a>
+            </div>
+            
+
+            <!-- Logo Block /- -->
+        </div>
+    </div><!-- Container /- -->
+</div><!-- Top Header /- -->
+        <!-- Menu Block -->
+<div class="menu-block container-fluid no-padding">
+    <!-- Container -->
+    <div class="container">
+        <!-- User -->
+        <a href="index.html" class="user" title="Home">
+            <i class="fa fa-home"></i>
+        </a><!-- User /- -->
+        <!-- Expanding Search -->
+        
+        <!-- Expanding Search /- -->
+        <div class="col-md-11 col-sm-12">
+            <!-- Navigation -->
+            <nav class="navbar ow-navigation">
+                <div class="navbar-header">
+                    <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a title="Logo" href="index.html" class="navbar-brand"><img src="images/ISSP-LOGO.jpg" alt="logo"/><span><img src="images/isspcon-logo.png" alt="Indian Society for Study of Pain" title="Indian Society for Study of Pain" style="max-width:100%;"></span></a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar">
+                    <ul class="nav navbar-nav menubar">
+                        <li><a title="Committee" href="committee.html">Committee</a></li>
+                        <li><a title="Faculties" href="faculty.html">Faculties</a></li>
+                        <li><a title="Program" href="program.html">Program</a></li>
+                        <li class="active"><a title="Registration" href="registration.html">Registration</a></li>
+                        <li><a title="Abstract" href="abstract.html">Abstract</a></li>
+                        <li><a title="Accommodation" href="accomodation.html">Accommodation</a></li>
+                        <li><a title="Exhibition" href="exibition.html">Exhibition</a></li>
+                        <li><a title="Contact" href="contact.html">Contact</a></li>
+                        <li><a title="Login" href="login.html">Login</a></li>
+                                            </ul>
+                </div>
+            </nav><!-- Navigation /- -->
+        </div>
+    </div><!-- Container /- -->
+</div><!-- Menu Block /- -->		
+	</header>
+	<!-- Header /- -->	
+	
+   <!-- PageBanner -->
+      <div class="container-fluid page-banner page-banner-4 blogpost no-padding">
+         <div class="section-padding"></div>
+         <div class="container">
+            <div class="banner-content-block">
+               <div class="banner-content">
+                  <h3>Register</h3>
+                  <ol class="breadcrumb">
+                     <li><a href="index.html">Home</a></li>
+                     <li class="active" style="color:#fde5d4;text-decoration: underlined;">Register</li>
+                  </ol>
+               </div>
+            </div>
+         </div>
+         <div class="section-padding"></div>
+      </div>
+      <!-- PageBanner /- -->
+    <div class="container-fulid no-padding howwecan-section">
+		<div class="section-padding"></div>
+		<div class="container">
+			<div class="row contact-form-section">
+				<div class="col-md-12 col-sm-12">
+					<div class="section-header">
+						<h3>Registration Details</h3>
+						<span>Please view registration guidelines before you proceed for registration</span>
+					</div>
+					<strong>Terms and Condition</strong>
+<ul>
+<li>Only registered delegates will be allowed to attend the conference.</li>
+<li>Registration fee is not transferable to any other attendee or meeting.</li>
+<li>Registration is confirmed only after the receipt of full payment.</li>
+<li>Conference registration is mandatory for registering to Pre-Conference Workshop.</li>
+<li>Registration fee will be based on the date of receipt of payment.</li>
+<li>Registration fee includes access to scientific sessions & trade exhibition, conference lunches & inaugural dinner & the conference kit.</li>
+<li>Conference kit will be distributed to the pre-registered delegates at the time of registration. Conference kits for delegates registered on-spot will be on the availability of stocks and on first come first serve basis.</li>
+<li>Charges incurred for bank transfer, Cheque / DD, Credit card payments to be borne by the payee itself.</li>
+<li>Kindly send the copy of payment confirmation if paying through Offine/Bank transfer via email</li>
+<li>Accompanying Person: For Spouse and Children (above 5 years) registration is mandatory.</li>
+<li>Accompanying person / spouse & children will not be allowed in the scientific sessions and exhibition.</li>
+<li>PG Students should submit a bonafide letter / certificate from their Head of the Department / Unit via email.</li>
+<li>Conference Organizers are not responsible for postal delays / failure of delivery by post or failure of electronic communication.</li>
+<li>The registration fee does not include any travel cost, accommodation, sightseeing tours or airport transfer.</li>
+<li>Above rates are inclusive of 18%, as applicable.</li>
+<li>Conference identification badges are mandatory for all conference events (Scientific Program, Lunch, Dinner, Cultural Event if any & Exhibition)</li>
+<li>In this conference, we are not offering residential packages consist of registration and accommodation. Each of these items has to be booked separately.</li>
+</ul>
+<!--<strong>Payment and Conditions </strong><br>
+<strong>Online Payment:</strong> 
+<ul>
+<li>Payment will be accepted only through VISA and MASTER CARD.</li>
+<li>American Express Card and other corporate credit card will not be accepted.</li>
+<li>You need to have your VBV (Verified by Visa) password or the One Time Net Secure Code to confirm your identity for this purchase.</li>
+<li>Please do not press "Submit" button more than once OR click on "Refresh" / "Back" button till your payment is through.</li>
+<li>Once you Submit your request for online payment, the server may take 1 to 5 seconds to respond; sometimes it may take little longer than that.</li>
+<li>The payment gateway website requires your Web Browser Popup to be enabled.</li>
+<li>Kindly check oyur spam email incase if you donot receive e-mail in Inbox.</li>
+</ul>-->
+
+<strong>Offline Payment: Bank Details :</strong> 
+
+<p>Kindly deposit the amount to the below mention Bank Account and email us the payment deposit slip returned by the Bank OR If done by using NEFT then mail us the screen shot of the payment success page or send us the Payment Transaction-ID, with your payment details and account information on <strong>isspcon2021@gmail.com</strong><br>
+Bank Name :  AXIS BANK <br>
+Account Name : Society For The Study Of Pain, Bhubaneswar<br>
+Bank Account Number : 920020009359052<br>
+IFSC Code : UTIB0003656<br>
+Account Type : CURRENT<br>
+Branch : Jaydevvihar (3656)</p>
+
+<strong>Offline Payment:</strong> 
+<ul>
+<li>"Cheque / Demand Draft" for the appropriate amount to be raised in favour of "Society For The Study Of Pain, Bhubaneswar", Odisha.</li>
+</ul>
+
+<strong>Cancellation and Refund Policy</strong>
+<ul>
+<li>All cancellation should be made in writing and sent to Secretariat.</li>
+<li>Cancellations received before 30th September 2020 will be entitled for only 75% refund of the amount paid.</li>
+<li>Cancellations received between 1st October 2020 - 31st December 2020 will be entitled for only 50% refund of the amount paid.</li>
+<li>No refund for cancellation made on or after 1st January 2021</li>
+<li>The refund process will begin only 30 days after the completion of the conference</li>
+<li>Refunds against registration will be processed less GST as per the current government's norms. In case of payment by card, bank processing fees will be charged @ 3%.</li>
+</ul>
+
+<strong>Note</strong>
+<ul>
+<li>Online registration facility via secured payment gateway is now available</li>
+<li>PG students should produce bonafide certificate/ letter from the HOD along with registration form & fees and send via e-mail.</li>
+<li>Accompanying person are not entitled for entrance to scientific halls.</li>
+<li>Spot registrations are not encouraged. Delegate kit is subject to availability and cannot be guaranteed for spot registrations.</li>
+<li>Kindly check oyur spam email incase if you donot receive e-mail in Inbox.</li>
+</ul>
+
+<strong>INCLUSIONS</strong><br>
+
+<strong>Full Registrations (all 3 days) are entitled for:</strong>
+<ul>
+<li>Access to Scientific Halls for all 3 days (except in the case of accompanying person)</li>
+<li>Lunch on all 3 days, Inaugural Dinner, Conference dinner and Tea sessions</li>
+<li>Conference kit</li>
+<li>Access to exhibition hall</li>
+</ul>
+<br>
+				</div>
+                <div class="col-md-12 col-sm-12">
+					<table cellpadding="0" cellspacing="0" width="100%" class="registerform">
+						<tr>
+							<th height="60px" colspan="7"><b>CONFERENCE - 5th-6th-7th Feb, 2021</b></th>
+						</tr>
+                        <tr align="center">
+							<th height="60px" colspan="7" align="center"><div align="center"><b>INDIAN DELEGATES (INR) 2021</b></div></th>
+						</tr>
+						<tr>
+							<th height="60px"><b>CATAGORY</b></th>
+							<th><b>CONFERENCE DISCOUNT <br>TILL 29TH FEB</b></th>
+							<th><b>SUPER EARLY BIRD <br>TILL 31ST MAY</b></th>
+							<th><b>EARLY BIRD <br>1ST JUNE TO 31ST AUG.</b></th>
+							<th><b>REGULAR <br>1ST SEPT. TO 31 DEC.</b></th>
+							<th><b>LATE <br>1ST JAN. 31 JAN.</b></th>
+							<th>ON SPOT</th>
+						</tr>
+						<tr>
+							<td height="40px"><b>MEMBER</b></td>
+							<td><i class="fa fa-inr"></i>.6900.00</td>
+							<td><i class="fa fa-inr"></i>.7700.00</td>
+							<td><i class="fa fa-inr"></i>.9500.00</td>
+							<td><i class="fa fa-inr"></i>.10600.00</td>
+							<td><i class="fa fa-inr"></i>.11900.00</td>
+							<td><i class="fa fa-inr"></i>.13900.00</td>
+						</tr>
+						<tr>
+							<td height="40px"><b>NON MEMBER</b></td>
+							<td><i class="fa fa-inr"></i>.7900.00</td>
+							<td><i class="fa fa-inr"></i>.8700.00</td>
+							<td><i class="fa fa-inr"></i>.10500.00</td>
+							<td><i class="fa fa-inr"></i>.11600.00</td>
+							<td><i class="fa fa-inr"></i>.12900.00</td>
+							<td><i class="fa fa-inr"></i>.14900.00</td>
+						</tr>
+						<tr>
+							<td height="40px"><b>PG STUDENT</b></td>
+							<td><i class="fa fa-inr"></i>.5400.00</td>
+							<td><i class="fa fa-inr"></i>.6300.00</td>
+							<td><i class="fa fa-inr"></i>.7300.00</td>
+							<td><i class="fa fa-inr"></i>.7900.00</td>
+							<td><i class="fa fa-inr"></i>.8500.00</td>
+							<td><i class="fa fa-inr"></i>.9200.00</td>
+						</tr>
+						<tr>
+							<td height="40px"><b>ACCOMPANYING PERSON</b></td>
+							<td><i class="fa fa-inr"></i>.5900.00</td>
+							<td><i class="fa fa-inr"></i>.6300.00</td>
+							<td><i class="fa fa-inr"></i>.7300.00</td>
+							<td><i class="fa fa-inr"></i>.7900.00</td>
+							<td><i class="fa fa-inr"></i>.8500.00</td>
+							<td><i class="fa fa-inr"></i>.9200.00</td>
+						</tr>
+                        <tr>
+							<td height="40px"><b>FACULTY</b></td>
+							<td><i class="fa fa-inr"></i>.6900.00</td>
+							<td><i class="fa fa-inr"></i>.7700.00</td>
+							<td><i class="fa fa-inr"></i>.9400.00</td>
+							<td><i class="fa fa-inr"></i>.9400.00</td>
+							<td><i class="fa fa-inr"></i>.9400.00</td>
+							<td><i class="fa fa-inr"></i>.9400.00</td>
+						</tr>
+					</table>
+                    	<br /><br />
+                    <table cellpadding="0" cellspacing="0" width="100%" class="registerform">
+						<tr>
+							<th height="60px" colspan="7"><b>CONFERENCE - 5th-6th-7th Feb, 2021</b></th>
+						</tr>
+                        <tr align="center">
+							<th height="60px" colspan="7" align="center"><div align="center"><b>FOREGIN DELEGATES (USD) 2021</b></div></th>
+						</tr>
+						<tr>
+							<th width="25%" height="60px"><b>CATAGORY</b></th>
+							<th width="15%"><b>CONFERENCE DISCOUNT <br>TILL 29TH FEB</b></th>
+							<th width="15%"><b>SUPER EARLY BIRD <br>TILL 31ST MAY</b></th>
+							<th width="15%"><b>EARLY BIRD <br>1ST JUNE TO 31ST AUG.</b></th>
+							<th width="15%"><b>REGULAR <br>1ST SEPT. TO 31 DEC.</th>
+							<th width="10%"><b>LATE <br>1ST JAN. 31 JAN.</b></th>
+							<th width="5%">ON SPOT</th>
+						</tr>
+						<tr>
+							<td height="40px"><b>MEMBER</b></td>
+							<td><i class="fa fa-usd"></i>.120</td>
+							<td><i class="fa fa-usd"></i>.140</td>
+							<td><i class="fa fa-usd"></i>.160</td>
+							<td><i class="fa fa-usd"></i>.180</td>
+							<td><i class="fa fa-usd"></i>.200</td>
+							<td><i class="fa fa-usd"></i>.240</td>
+						</tr>
+						<tr>
+							<td height="40px"><b>NON MEMBER</b></td>
+							<td><i class="fa fa-usd"></i>.140</td>
+							<td><i class="fa fa-usd"></i>.160</td>
+							<td><i class="fa fa-usd"></i>.180</td>
+							<td><i class="fa fa-usd"></i>.240</td>
+							<td><i class="fa fa-usd"></i>.270</td>
+							<td><i class="fa fa-usd"></i>.340</td>
+						</tr>
+						<tr>
+							<td height="40px"><b>PG STUDENT</b></td>
+							<td><i class="fa fa-usd"></i>.100</td>
+							<td><i class="fa fa-usd"></i>.110</td>
+							<td><i class="fa fa-usd"></i>.130</td>
+							<td><i class="fa fa-usd"></i>.140</td>
+							<td><i class="fa fa-usd"></i>.150</td>
+							<td><i class="fa fa-usd"></i>.160</td>
+						</tr>
+						<tr>
+							<td height="40px"><b>ACCOMPANYING PERSON</b></td>
+							<td><i class="fa fa-usd"></i>.100</td>
+							<td><i class="fa fa-usd"></i>.110</td>
+							<td><i class="fa fa-usd"></i>.130</td>
+							<td><i class="fa fa-usd"></i>.140</td>
+							<td><i class="fa fa-usd"></i>.150</td>
+							<td><i class="fa fa-usd"></i>.160</td>
+						</tr>
+                        <tr>
+							<td height="40px"><b>FACULTY</b></td>
+							<td><i class="fa fa-usd"></i>.120</td>
+							<td><i class="fa fa-usd"></i>.130</td>
+							<td><i class="fa fa-usd"></i>.160</td>
+							<td><i class="fa fa-usd"></i>.190</td>
+							<td><i class="fa fa-usd"></i>.200</td>
+							<td><i class="fa fa-usd"></i>.200</td>
+						</tr>
+					</table>
+                    
+                    <div id="alert-msg" class="alert-msg"></div>
+				</div>
+				<form class="contactus-form" action="" method="POST" onSubmit="">
+				<div class="col-md-12 col-sm-12">
+					<div class="col-md-6 col-sm-12">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<input type="text" name="fname" class="form-control" id="fname" placeholder="NAME*" tabindex="1" maxlength="50" onBlur="FnameValidation(this.id,'FnameValidation')" required/>
+								<div id="FnameValidation" class="validation"></div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" placeholder="DATE OF BIRTH*" />
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<input type="text" name="lname" class="form-control" id="lname" placeholder="NAME OF THE INSTITUTION*" tabindex="3" maxlength="50" onBlur="LnameValidation(this.id,'LnameValidation')" required/>
+								<div style="color:#F00;" id="LnameValidation" class="validation"></div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<input type="text" name="email" class="form-control" id="mobile" placeholder="E-MAIL ID*" tabindex="4" maxlength="10" onBlur="MobileValidation(this.id,'MobileValidation')" required />
+								<div id="EmailValidation" class="validation"></div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" name="state" id="state" tabindex="8" onBlur="StateValidation(this.id,'StateValidation')" required>
+									<option value="">MEAL PREFERENCE*</option>
+									<option value="VEG">VEG</option>
+									<option value="NON VEG">NON VEG</option>
+									<option value="JAIN FOOD">JAIN FOOD</option>
+								</select>
+								<div id="EmailValidation" class="validation"></div>
+							</div>
+						</div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" name="state" id="state" tabindex="8" onBlur="StateValidation(this.id,'StateValidation')" required>
+									<option value="">ANY ACCOMPANYING PERSON*</option>
+									<option value="YES">YES</option>
+									<option value="NO">NO</option>
+								</select>
+								<div id="EmailValidation" class="validation"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-12">
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<input type="text" name="address1" class="form-control" id="address1" placeholder="ADDRESS*" maxlength="150" tabindex="6" />
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<input type="text" name="address2" class="form-control" id="address2" placeholder="DESIGNATION" maxlength="150" tabindex="7" />
+							</div>
+						</div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<input type="text" name="address2" class="form-control" id="MOBILE NO" placeholder="MOBILE NO*" maxlength="150" tabindex="7" />
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" name="state" id="state" tabindex="8" onBlur="StateValidation(this.id,'StateValidation')" required>
+									<option value="">ATTENDING WORKSHOP*</option>
+									<option value="YES">YES</option>
+									<option value="NO">NO</option>
+								</select>
+								<div id="EmailValidation" class="validation"></div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<select class="form-control" name="state" id="state" tabindex="8" onBlur="StateValidation(this.id,'StateValidation')" required>
+									<option value="">BEVERAGE PREFERENCE*</option>
+									<option value="YES">YES</option>
+									<option value="NO">NO</option>
+								</select>
+								<div id="EmailValidation" class="validation"></div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+							<div class="form-group">
+								<input type="text" name="TOTAL REGISTRATION AMOUNT TO BE DEPOSITED" class="form-control" id="pincode" placeholder="TOTAL REGISTRATION AMOUNT TO BE DEPOSITED*" tabindex="10" maxlength="6" onBlur="PincodeValidation(this.id,'PincodeValidation')" />
+								<div id="PincodeValidation" class="validation"></div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group pull-right">
+							<input id="datasubmit" type="submit" value="Submit" title="Send" name="post">
+                        </div>
+                    </div>
+					</div>
+				</div>
+				
+				</form>
+			</div>
+		</div>
+		<div class="section-padding"></div>
+	</div>
+	
+	
+	
+	<!-- Footer Main -->
+<footer class="footer-main container-fluid no-padding" style="padding-top:40px;">
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+            <!-- ContactUs Widget -->
+            <aside class="col-md-4 col-sm-6 col-xs-12 widget widget_newsletter">
+                <h3 style="padding-bottom:5px; margin-bottom:0px;" class="block-title">Conference SECRETARIAT</h3>
+                <p>
+               <strong> Health Village Hospital</strong><br>
+                <strong>Pain Free Odisha</strong><br>
+Plot no 15/1, Civic Center Nayapalli, Bhubaneswar-751015<br/>
+<strong>Call Us: +91-9437122165/7606002165</strong><br>
+<strong>Email:</strong>isspcon2021@gmail.com</p>
+                
+                
+            </aside><!-- ContactUs Widget /- -->
+            
+            <!-- NewsLetter Widget -->
+            <aside class="col-md-4 col-sm-6 col-xs-12 widget widget_newsletter">
+                <h3 class="block-title">Conference Managed By</h3>
+                <p><strong>&nbsp;</strong></p>
+                <br />
+                <h3 class="block-title">Event Organisers</h3>
+                <p><strong>&nbsp;</strong></p>
+                <br />
+                <h3 class="block-title">Registration & Mobile Application</h3>
+                <p><strong>&nbsp;</strong></p><br>
+            </aside><!-- NewsLetter Widget /- -->
+            
+            <aside class="col-md-4 col-sm-6 col-xs-12 widget widget_newsletter">
+                <h3 style="padding-bottom:5px; margin-bottom:0px;" class="block-title">Conference Venue</h3>
+                <p><strong>Hotel The Crown,</strong><br />
+              Jayadev Vihar, Bhubaneswar - 751015</p>
+                <br/>
+                <ul>
+                    <li><a title="Facebook" data-toggle="tooltip" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a title="Twitter" data-toggle="tooltip" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a title="Google Plus" data-toggle="tooltip" href="#"><i class="fa fa-google-plus"></i></a></li>
+                   <li><a title="Linkedin" data-toggle="tooltip" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a title="Pinterest" data-toggle="tooltip" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                    <li><a title="Dribbble" data-toggle="tooltip" href="#"><i class="fa fa-dribbble"></i></a></li>
+                </ul><br>
+
+                <div>
+                 <h3 style="padding-bottom:5px; margin-bottom:0px;" class="block-title">Book your tickets now</h3>
+					<form>
+						<div class="form-group">
+							<input type="text" class="form-control" id="name" placeholder="Full Name"/>
+						</div>
+						<div class="form-group">
+							<input type="email" class="form-control" id="email" placeholder="Email Address"/>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" id="phone" placeholder="phone Number"/>
+						</div>
+						<button type="submit" class="btn">Register now</button>
+					</form>
+				</div>
+            </aside>
+        </div>
+    </div><!-- Container /- -->	
+    
+    <!-- Container -->
+    <div class="container">
+        <div class="footer-menu" style="padding:0px;">
+            <!-- Copyrights -->
+            <div class="copyrights ow-pull-left">
+                <p>&copy; www.isspcon2021.com  | All rights reserved</p>
+            </div><!-- Copyrights /- -->
+            <!-- Navigation -->
+            <!--<nav class="navbar ow-navigation ow-pull-right">
+                <div class="navbar-header">
+                    <button aria-controls="navbar" aria-expanded="false" data-target="#navbar2" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                
+            </nav>--><!-- Navigation /- -->
+        </div><!-- Footer Menu /- -->
+    </div><!-- Container /- -->
+</footer><!-- Footer Main /- -->	
+	<!-- JQuery v1.11.3 -->
+	<script data-cfasync="false" src="cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.html"></script><script src="js/jquery.min.js"></script>
+	<!-- Library - Js -->
+	<script src="libraries/lib.js"></script><!-- Bootstrap JS File v3.3.5 -->
+	<script src="libraries/jquery.countdown.min.js"></script>
+	<script src="libraries/lightslider-master/lightslider.js"></script>
+	<script src="js/functions.js"></script>
+    <script src="js/script.js"></script>
+    <!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
+    	<script>
+		$(document).ready(function(){
+			//$('#showpricemessage,#doctorloader').hide();
+			$("#mobile,#pincode").keydown(function (e) {
+						// Allow: backspace, delete, tab, escape, enter and .
+				if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+					 // Allow: Ctrl+A
+					(e.keyCode == 65 && e.ctrlKey === true) || 
+					 // Allow: home, end, left, right
+					(e.keyCode >= 35 && e.keyCode <= 39)) {
+						 // let it happen, don't do anything
+						 return;
+				}
+				// Ensure that it is a number and stop the keypress
+				if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+					e.preventDefault();
+				}
+			});
+			$('#submitloader').hide();
+			regfees();
+		});
+	</script>
+
+<!------ Processsing Script ----->
+<div id="loading-div-background">
+  <div id="loading-div" class="ui-corner-all">
+    <img style="height:130px;margin:30px;" src="images/header.jpg" border="0"/>
+    <br />
+    <img src="images/please_wait.gif" width="380px" border="0"/>
+    <br />
+    <br />
+  </div>
+</div>
+<!---end----->
+    
+    </body>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+</html>
